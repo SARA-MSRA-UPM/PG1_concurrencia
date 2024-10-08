@@ -3,7 +3,6 @@ import math
 from threading import Thread, Event
 from time import sleep
 # internal imports
-from ..helpers.helpers import *
 from ..actors.points.point import Point
 
 
