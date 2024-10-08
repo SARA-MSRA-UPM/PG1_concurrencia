@@ -1,4 +1,4 @@
-# PG1_concurrencia
+# Practica Guiada 1 - Concurrencia y Paralelismo
 
 Este repositorio contiene el código de la práctica guiada "Concurrencia y 
 Paralelismo" de la asignatura Software Avanzado Radar (SARA) del Master en 
@@ -53,7 +53,26 @@ métodos `run` y `stop` propios de cualquier clase que hereda de `Thread` y
 puede ejecutarse como una hebra por tanto.
 
 ### Clase Punto
+La clase `Punto` implementa un modelo digital de puntos que se desplazan por 
+el terreno de pruebas. Esta clase hereda de `Thread` por lo que cada objeto de 
+esta clase es capaz de ejecutarse como una hebra. 
 
+Para aportar algo más de variedad la clase `Punto` es heredada por otras como 
+son `EightPoint` o `CircularPoint`. Los objetos de estas clases describen 
+caminos diferentes pudiendo crear situaciones interesantes durante el 
+desarrollo de las distintas practicas guidadas y entregables.
+
+Estos puntos tienen como atributos comunes:
+ -  x e y: coordenadas de la posición actual del punto
+
+Además las clases "hijas" de `Punto` tienen sus propios atributos, unicamente 
+para hacer más sencilla la implementación de su funcionalidad.
+
+Al igual que el [`Radar`](#clase-radar) el `Punto` y sus hijos incluyen los 
+métodos `run` y `stop` propios de cualquier clase que hereda de `Thread` y que 
+le permiten ejecutarse como una hebra de forma concurrente. También incluyen 
+métodos propios de la clase que actualizan la posición del punto de distintas 
+formas.
 
 ## Ejecución
 El primer paso para poder ejecutar la práctica y comprobar su funcionamiento 
