@@ -32,7 +32,25 @@ detecciones del radar. El patrón que vamos a utilizar es el de "Monitor" y el
 de "Productor-Consumidor".
 
 ### Clase Radar
+La clase `Radar` implementa un modelo digital del funcionamiento de un radar 
+real. Esta clase hereda de `Thread` por lo que cada objeto de esta clase es 
+capaz de ejecutarse como una hebra. 
 
+Este radar tiene como atributos:
+  - name: nombre del radar
+  - x e y: coordenadas de la posición del radar
+  - detection_range: distancia de detección del radar
+  - orientation: ángulo de orientación inicial del radar
+  - facing: ángulo actual del radar
+  - detection: distancia a la que se detecta un objeto
+  - points: objetos `Point` que el radar es capaz de detectar
+
+Además de los anteriores atributos contiene 2 tipos de métodos principales. En 
+primer lugar los métodos propios del radar que principalmente se encargan de 
+las operaciones matemáticas necesarias para girar el radar y detectar si 
+existe algún objeto dentro de su alcance. En segundo lugar implementa los 
+métodos `run` y `stop` propios de cualquier clase que hereda de `Thread` y 
+puede ejecutarse como una hebra por tanto.
 
 ### Clase Punto
 
