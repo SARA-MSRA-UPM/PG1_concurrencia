@@ -1,12 +1,9 @@
 # external imports
-import matplotlib.pyplot as plt
-import random
 import threading
 from time import sleep
 # internal imports
 from src.actors.points.circular_point import CircularPoint
 from src.actors.points.eight_point import EightPoint
-from src.actors.points.path_point import PathPoint
 from src.actors.radar import Radar
 
 
