@@ -7,7 +7,7 @@ from ..actors.points.point import Point
 from src.actors.monitor import Monitor
 
 # Radar constants
-INCREMENT = 1
+INCREMENT = 30
 REVOLUTIONS = 1
 
 
@@ -19,7 +19,6 @@ class Radar(Thread):
             detection_range: float,
             orientation: float,
             points: list[Point],
-            monitor: Monitor,
         ):
         super().__init__()
         # Radar properties
@@ -30,7 +29,6 @@ class Radar(Thread):
         self.facing = 0
         self.detection = self.detection_range
         self.points = points
-        self.monitor = monitor
 
         # Threads properties
         self._stop_event = Event()
@@ -76,13 +74,6 @@ class Radar(Thread):
                 "name": self.name,
                 "distance": self.detection,
                 "facing": self.facing,
-                "coords": self.get_cartesian_coords(self.detection, self.facing)
             }
             print(f"Detección: {detection}")
-            self.monitor.update(radar=self, point=point)
 
-    # PG1 methods
-    def get_cartesian_coords(self, distance: float, angle: float) -> tuple[float, float]:
-        x_relative: float = distance * math.cos(math.radians(angle + self.orientation))
-        y_relative: float = distance * math.sin(math.radians(angle + self.orientation))
-        return self.x + x_relative, self.y + y_relative
