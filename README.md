@@ -15,8 +15,7 @@ relacionados con el código de la aplicación.
   principal de la práctica
   - `helpers`: contiene archivos con funcionalidades generales del proyecto que
   pueden ser utilizada por cualquier clase principal.
-  - `base`: contine clases base utilizadas en como núcleo de distintas
-  funcionalidades del proyecto.
+  - `models`: contine clases que actuan como modelos de datos del proyecto.
 
 ## Escenario de la práctica
 
