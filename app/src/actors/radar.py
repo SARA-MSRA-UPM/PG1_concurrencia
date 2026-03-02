@@ -3,8 +3,8 @@ import math
 from threading import Thread, Event
 from time import sleep
 # internal imports
-from ..actors.points.point import Point
-from src.actors.monitor import Monitor
+from src.actors.points.point import Point
+from src.models.RadarDetection import RadarDetection
 
 # Radar constants
 INCREMENT = 30
@@ -27,7 +27,7 @@ class Radar(Thread):
         self.detection_range = detection_range
         self.orientation = orientation
         self.facing = 0
-        self.detection = self.detection_range
+        self.detections = set()
         self.points = points
 
         # Threads properties
@@ -63,17 +63,19 @@ class Radar(Thread):
     def detect(self, points: list[Point]):
         # determine sector
         sector = (self.orientation + self.facing) % 360
+        distances_detected = set()
         for point in points:
             if self._in_sector(point, sector):
                 distance = self._distance(point)
-                if distance < self.detection:
-                    self.detection = distance
+                if self.detection_range >= distance:
+                    distances_detected.add(distance)
 
-        if self.detection != self.detection_range:
-            detection: dict = {
-                "name": self.name,
-                "distance": self.detection,
-                "facing": self.facing,
-            }
-            print(f"Detección: {detection}")
+        for distance in distances_detected:
+            radar_detection = RadarDetection(
+                radar_name=self.name,
+                distance=distance,
+                facing=self.facing,
+            )
+            self.detections.add(radar_detection)
+            print(f"Detección: {radar_detection}")
 
