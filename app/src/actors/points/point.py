@@ -20,4 +20,6 @@ class Point(Thread):
             sleep(1/30)  # 30 FPS
 
     def update(self):
+        self.x = self.x
+        self.y = self.y
         pass
