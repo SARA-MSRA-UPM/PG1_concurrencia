@@ -2,7 +2,7 @@
 # internal imports
 
 
-class Lector:
-    
+class DetectionsMonitor:
+     
     def __init__(self):
         pass

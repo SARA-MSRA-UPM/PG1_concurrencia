@@ -2,7 +2,7 @@
 # internal imports
 
 
-class Monitor:
-     
+class DetectionsConsumer():
+    
     def __init__(self):
         pass

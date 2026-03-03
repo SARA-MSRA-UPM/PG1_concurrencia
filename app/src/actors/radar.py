@@ -4,10 +4,11 @@ from threading import Thread, Event
 from time import sleep
 # internal imports
 from src.actors.points.point import Point
-from src.models.RadarDetection import RadarDetection
+from src.models.radar_detection import RadarDetection
+
 
 # Radar constants
-INCREMENT = 30
+INCREMENT = 15
 REVOLUTIONS = 1
 
 
@@ -72,10 +73,9 @@ class Radar(Thread):
 
         for distance in distances_detected:
             radar_detection = RadarDetection(
-                radar_name=self.name,
+                radar=self,
                 distance=distance,
                 facing=self.facing,
             )
             self.detections.add(radar_detection)
             print(f"Detección: {radar_detection}")
-

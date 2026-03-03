@@ -88,8 +88,8 @@ crearlo. En cualquier caso se pude crear utilizando los siguientes comandos:
 - Linux
 
 ```shell
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 - Windows
