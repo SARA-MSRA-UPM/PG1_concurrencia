@@ -124,12 +124,12 @@ relativa respecto a la suya original. Sin embargo, nos interesa conocer las
 coordenadas en la que este objeto se ha detectado por lo que deberemos realizar
 la operación matemática adecuada para obtener sus coordenadas cartesianas.
 
-2. **Implementar clase Monitor.** Como se ha descrito en el
+2. **Implementar clase DetectionsMonitor.** Como se ha descrito en el
 [escenario](#escenario-de-la-práctica) utilizaremos el patrón de diseño el
 patrón "Monitor" por lo que será necesario crear dicho monitor que sea capaz de
 controlar el acceso a las detecciones de los distintos radares.
 
-3. **Implementar clase Lector.** Como se ha descrito en el
+3. **Implementar clase DetectionsConsumer.** Como se ha descrito en el
 [escenario](#escenario-de-la-práctica) utilizaremos el patrón de diseño
 "Productor-Consumidor" por lo que será necesario crear un consumidor o lector
 que utilice las detecciones generadas por los distintos radares.
